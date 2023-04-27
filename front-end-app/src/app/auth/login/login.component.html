@@ -1,0 +1,31 @@
+<div class="container" id="container">
+  <div class="form-container sign-in-container">
+    <form autocomplete="off" role="form" #loginForm='ngForm'>
+      <h1 class="mb-3">Connexion <i [routerLink]="['/home']" class="bx bx-sm bx-home"
+                                    style="position: absolute;top: 5px;left: 5px;"></i></h1>
+      <input type="email" placeholder="Email" required
+             [class.is-valid]="email.valid && email.touched" #email="ngModel"
+             [class.is-invalid]="email.invalid && email.touched"
+             autofocus class="form-control"
+             name="email" [(ngModel)]="credentials.email"/>
+      <input type="password" name="password" placeholder="Mot de passe" class="form-control" required
+             [(ngModel)]="credentials.password" #password="ngModel"
+             [class.is-valid]="password.valid && password.touched"
+             [class.is-invalid]="password.invalid && password.touched"/>
+      <!-- <a href="#">Mot de passe oublié ?</a> -->
+      <button class="btn mt-3" type="button" name="login" id="loginButton" [disabled]="loginForm.invalid"
+              (keyup.enter)="login()"
+              (click)="login()">Se connecter
+      </button>
+    </form>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-right">
+        <h1>Bienvenue!</h1>
+        <p>Saisissez vos données personnelles et commencez à voyager avec nous.</p>
+        <button class="ghost" [routerLink]="['/auth','register']" id="signUp">Inscription</button>
+      </div>
+    </div>
+  </div>
+</div>

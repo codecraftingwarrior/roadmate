@@ -1,0 +1,56 @@
+<div class="container" id="container">
+  <div class="form-container sign-in-container">
+    <form autocomplete="off" role="form" #registerForm="ngForm">
+      <h1 class="mb-3">Inscription <i [routerLink]="['/home']" class="bx bx-sm bx-home"
+                                      style="position: absolute;top: 5px;left: 5px;"></i>
+      </h1>
+      <nz-radio-group class="mb-2" name="userType" [(ngModel)]="userType" nzButtonStyle="solid">
+        <label nz-radio nzValue="customer">Client</label>
+        <label nz-radio nzValue="driver">Prestataire</label>
+      </nz-radio-group>
+      <input type="email" placeholder="Email" name="email"
+             [(ngModel)]="internaute.email" required
+             [class.is-valid]="email.valid && email.touched" #email="ngModel"
+             [class.is-invalid]="email.invalid && email.touched"
+             autofocus class="form-control"
+      />
+      <input type="password" placeholder="Mot de passe" name="password"
+             [(ngModel)]="internaute.password" required
+             [class.is-valid]="password.valid && password.touched" #password="ngModel"
+             [class.is-invalid]="password.invalid && password.touched"
+             class="form-control"
+      />
+      <input type="password" placeholder="Confirmer mot de passe" name="passwordConfirm"
+             [(ngModel)]="internaute.passwordConfirm" required
+             [class.is-valid]="passwordConfirm.valid && passwordConfirm.touched" #passwordConfirm="ngModel"
+             [class.is-invalid]="passwordConfirm.invalid && passwordConfirm.touched"
+             class="form-control"
+      />
+      <input *ngIf="userType == 'driver'" type="text" placeholder="Numero de permis" name="licenceNumber"
+             [(ngModel)]="internaute.licenceNumber" required
+             [class.is-valid]="licenceNumber.valid && licenceNumber.touched" #licenceNumber="ngModel"
+             [class.is-invalid]="licenceNumber.invalid && licenceNumber.touched"
+             class="form-control"
+      />
+      <input *ngIf="userType == 'driver'" type="text" placeholder="Numero d'immatriculation" name="licencePlateNumber"
+             [(ngModel)]="internaute.licencePlateNumber" required
+             [class.is-valid]="licencePlateNumber.valid && licencePlateNumber.touched" #licencePlateNumber="ngModel"
+             [class.is-invalid]="licencePlateNumber.invalid && licencePlateNumber.touched"
+             class="form-control"
+      />
+      <!-- <a href="#">Mot de passe oublié ?</a> -->
+      <button class="mt-3 btn" type="button" [disabled]="registerForm.invalid || loading" (keyup.enter)="register()"
+              (click)="register()">Valider
+      </button>
+    </form>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-right">
+        <h1>Bienvenue!</h1>
+        <p>Vous êtes déjà titulaire d'un compte ? Connectez - vous afin de pouvoir voyager en toute sérénité.</p>
+        <button class="ghost" [routerLink]="['/auth', 'login']" id="signUp">Se connecter</button>
+      </div>
+    </div>
+  </div>
+</div>

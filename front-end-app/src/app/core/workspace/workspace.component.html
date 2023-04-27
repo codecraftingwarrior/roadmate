@@ -1,0 +1,45 @@
+<app-menu></app-menu>
+
+<main id="workspace-container" class="p-5">
+  <section id="workspace">
+    <div class="container-fluid row">
+      <div class="col-8">
+        <nz-card style="width: 100%; min-height: 500px;">
+          <nz-card-tab>
+            <nz-tabset nzSize="large" [(nzSelectedIndex)]="selectedIndex">
+              <nz-tab [nzTitle]="informationTitleTemplate">
+                <ng-template #informationTitleTemplate>
+                  <i class="bx bx-info-circle"></i>
+                  Mes informations
+                </ng-template>
+              </nz-tab>
+              <nz-tab [nzTitle]="offerTitleTemplate" *ngIf="user.type === 'driver'">
+                <ng-template #offerTitleTemplate>
+                  <i class="bx bx-directions"></i>
+                  Mes Trajets
+                </ng-template>
+              </nz-tab>
+              <nz-tab [nzTitle]="offerReservationTemplate" *ngIf="user?.type === 'customer'">
+                <ng-template #offerReservationTemplate>
+                  <i class="bx bx-check-double"></i>
+                  Mes reservations
+                </ng-template>
+              </nz-tab>
+            </nz-tabset>
+          </nz-card-tab>
+          <app-user-update-informations *ngIf="selectedIndex === 0"></app-user-update-informations>
+          <app-offer-list *ngIf="selectedIndex === 1 && user.type === 'driver'" ></app-offer-list>
+          <app-booking-list *ngIf="selectedIndex === 1 && user.type === 'customer'" [user]="user" ></app-booking-list>
+
+        </nz-card>
+      </div>
+      <div class="col-4">
+        <nz-card style="width:100%;">
+          <app-user-informations></app-user-informations>
+        </nz-card>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

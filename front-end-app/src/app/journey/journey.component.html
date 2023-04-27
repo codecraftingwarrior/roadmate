@@ -1,0 +1,141 @@
+<app-menu></app-menu>
+
+<section id="hero">
+  <div class="container pb-4">
+    <div data-aos="zoom-out">
+      <h2>Trouvez le plus convenable trajet au prix juste!</h2>
+      <form nz-form (ngSubmit)="onSubmit()">
+        <div class="row search-card d-flex justify-content-between">
+          <div class="col-2">
+            <label>Ville de départ</label>
+            <div class="d-inline-block mt-2">
+              <input
+                name="departureCity"
+                placeholder="Ville de depart"
+                #departureCity="ngModel"
+                nz-input
+                [(ngModel)]="criteria.departureCity"
+                (input)="onInput($event, 'departure')"
+                [nzAutocomplete]="auto"
+              />
+              <nz-autocomplete [nzDataSource]="departurePlaceOptions" nzBackfill #auto></nz-autocomplete>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <label>Ville d'arrivée</label>
+            <div class="d-inline-block mt-2">
+              <input
+                name="arrivalCity"
+                placeholder="Ville d'arrivée"
+                nz-input
+                #arrivalCity="ngModel"
+                [(ngModel)]="criteria.arrivalCity"
+                (input)="onInput($event, 'arrival')"
+                [nzAutocomplete]="autoArrival"
+              />
+              <nz-autocomplete [nzDataSource]="arrivalPlaceOptions" nzBackfill #autoArrival></nz-autocomplete>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <label>Date de départ</label>
+            <nz-date-picker class="d-inline-block mt-2" style="width: 100% !important;" #date="ngModel" name="date"
+                            [(ngModel)]="criteria.date"></nz-date-picker>
+          </div>
+
+          <div class="col-2">
+            <label>Prix maximum</label>
+            <nz-input-number class="d-inline-block w-100 mt-2" #price="ngModel" name="maxPrice"
+                             [(ngModel)]="criteria.maxPrice"/>
+          </div>
+
+          <div class="col-2 d-flex flex-row align-items-center justify-content-end mt-3">
+            <button
+              [disabled]="areAllFieldsEmpty()"
+              nz-button nzType="primary" [nzLoading]="loading" type="submit" style="position: relative; top: 6px;">
+              Rechercher
+            </button> &nbsp;
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<main id="offerList" class="p-5">
+  <div class="row" *ngIf="carpools?.length">
+    <div class="col-3 mb-4" *ngFor="let carpool of carpools">
+      <nz-ribbon (mouseenter)="auth.hidden = isOnline ? isOnline : false" (mouseleave)="auth.hidden = true"
+                 [nzText]="carpool.driverEmail">
+        <nz-card style="width:100%;">
+          <p>
+            <i class="bx bx-directions"></i>
+            {{carpool?.departureCity?.name}} - {{carpool?.arrivalCity?.name}}
+          </p>
+          <p>
+            <i class="bx bx-calendar"></i>
+            {{carpool?.date | date:'dd/MM/yyyy'}}
+          </p>
+          <p>
+            <i class="bx bx-time"></i>
+            {{carpool?.date | date:'HH:mm'}}
+          </p>
+          <p>
+            <i class="bx bx-chair"></i>
+            {{carpool?.numSeats}} Places disponibles
+          </p>
+          <p>
+            <i class="bx bx-money-withdraw"></i>
+            {{carpool?.price}} €
+          </p>
+          <div class="d-flex flex-row justify-content-end align-items-center">
+            <button nz-button nzType="primary" (click)="promptUser(carpool)" nz-tooltip
+                    [hidden]="isOnline && user.type === 'driver'"
+                    [disabled]="!isOnline || alreadyBooked(carpool)">
+              <i class="bx bx-check-circle"></i> &nbsp;
+              Reserver
+            </button> &nbsp;
+            <button nz-button nzType="primary" (click)="showItineraryModal(carpool)" nz-tooltip
+                    nzTooltipTitle="Voir l'itinéraire">
+              <i class="bx bx-map"></i>
+            </button>
+          </div>
+          <span #auth [hidden]="true" class="auth-text text-muted">Authentifiez vous.</span>
+        </nz-card>
+      </nz-ribbon>
+    </div>
+  </div>
+
+  <div class="row d-flex flex-column justify-content-center align-content-center align-content-center"
+       *ngIf="!carpools?.length">
+    <div class="col-6">
+      <img src="assets/img/search.png" style="display: inline-block" height="650px" width="650px" alt="search img">
+      <nz-alert nzType="info" nzMessage="Informations" style="width: 100% !important; display: inline-block"
+                nzDescription="Veuillez effectuer une recherche pour commencer." nzShowIcon></nz-alert>
+    </div>
+
+  </div>
+</main>
+
+<nz-modal [nzWidth]="820" [(nzVisible)]="isItineraryModalVisible" nzTitle="Intinéraire"
+          [nzFooter]="null"
+          (nzOnCancel)="isItineraryModalVisible = false">
+  <ng-container *nzModalContent>
+    <h6 *ngIf="selectedCarpool.departureCity.address">
+      <i class="bx bx-map-pin"></i>
+      Départ : {{selectedCarpool.departureCity.address}}
+    </h6>
+    <br>
+    <h6 *ngIf="selectedCarpool.arrivalCity.address">
+      <i class="bx bx-map-pin"></i>
+      Arrivée : {{selectedCarpool.arrivalCity.address}}
+    </h6>
+    <br>
+    <app-offer-map [carpool]="selectedCarpool"></app-offer-map>
+  </ng-container>
+</nz-modal>
+
+
+<app-footer></app-footer>

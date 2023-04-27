@@ -1,0 +1,54 @@
+<div>
+  <h6>Mes reservations</h6>
+  <br>
+  <div class="row">
+    <div class="col-4" *ngFor="let carpool of carpools">
+      <nz-card style="width:100%;">
+        <p>
+          <i class="bx bx-directions"></i>
+          {{carpool?.departureCity?.name}} - {{carpool?.arrivalCity?.name}}
+        </p>
+        <p>
+          <i class="bx bx-calendar"></i>
+          {{carpool?.date | date:'dd/MM/yyyy'}}
+        </p>
+        <p>
+          <i class="bx bx-time"></i>
+          {{carpool?.date | date:'HH:mm'}}
+        </p>
+        <p>
+          <i class="bx bx-money-withdraw"></i>
+          {{carpool?.price}} €
+        </p>
+        <div class="d-flex flex-row justify-content-end align-items-center">&nbsp;
+          <button nz-button nzType="primary" (click)="selectedCarpool = carpool; isItineraryModalVisible = true" nz-tooltip
+                  nzTooltipTitle="Voir l'itinéraire">
+            <i class="bx bx-map"></i>
+          </button>
+        </div>
+      </nz-card>
+    </div>
+
+  </div>
+
+  <nz-alert [hidden]="carpools.length>0" nzType="info" nzMessage="Informations"
+            nzDescription="Vous n'avez encore aucune reservation pour le moment." nzShowIcon></nz-alert>
+</div>
+
+<nz-modal [nzWidth]="820" [(nzVisible)]="isItineraryModalVisible" nzTitle="Intinéraire"
+          [nzFooter]="null"
+          (nzOnCancel)="isItineraryModalVisible = false">
+  <ng-container *nzModalContent>
+    <h6 *ngIf="selectedCarpool.departureCity.address">
+      <i class="bx bx-map-pin"></i>
+      Départ : {{selectedCarpool.departureCity.address}}
+    </h6>
+    <br>
+    <h6 *ngIf="selectedCarpool.arrivalCity.address">
+      <i class="bx bx-map-pin"></i>
+      Arrivée : {{selectedCarpool.arrivalCity.address}}
+    </h6>
+    <br>
+    <app-offer-map [carpool]="selectedCarpool"></app-offer-map>
+  </ng-container>
+</nz-modal>

@@ -1,0 +1,49 @@
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center justify-content-between">
+
+    <div class="logo">
+      <h1><a [routerLink]="''"><span>RoadMate</span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+    </div>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/home']">
+            <i style="font-size: 17px !important" class="bx bx-home-circle"></i> &nbsp;
+            Acceuil
+          </a>
+        </li>
+         <li>
+          <a class="nav-link" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/journey']">
+            <i style="font-size: 17px !important" class="bx bx-directions"></i> &nbsp;
+            Trajets
+          </a>
+        </li>
+
+        <li *ngIf="!isOnline else loggedInContent">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/auth', 'login']">
+            <i style="font-size: 17px !important" class="bx bx-log-in-circle"></i> &nbsp;
+            Connectez - vous
+          </a>
+        </li>
+        <ng-template #loggedInContent>
+          <li>
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/workspace']" >
+              <i style="font-size: 17px !important" class="bx bx-user-circle" ></i> &nbsp;
+              Mon Espace
+            </a>
+          </li>
+          <a class="nav-link" routerLinkActive="active" (click)="logout()">
+            <i style="font-size: 17px !important" class="bx bx-log-out-circle" ></i> &nbsp;
+            Déconnexion
+          </a>
+        </ng-template>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->

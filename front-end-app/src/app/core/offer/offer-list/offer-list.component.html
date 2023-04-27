@@ -1,0 +1,84 @@
+<nz-card style="width: 100%;">
+  <button (click)="isAddModalVisible = true" nz-button nzType="primary"
+          style="width: 15%; position: relative; left: 85% !important;">
+    Ajouter
+  </button>
+</nz-card>
+
+<div class="row d-flex mt-3 flex-row justify-content-between align-items-center">
+  <div class="col-4 mb-4" *ngFor="let carpool of carpoolings" (contextmenu)="contextMenu($event, menu, carpool)">
+    <nz-ribbon [nzText]="carpool?.passengers?.length + ' passagers'">
+      <nz-card style="width:100%;">
+        <p>
+          <i class="bx bx-directions"></i>
+          {{carpool?.departureCity?.name}} - {{carpool?.arrivalCity?.name}}
+        </p>
+        <p>
+          <i class="bx bx-calendar"></i>
+          {{carpool?.date | date:'dd/MM/yyyy'}}
+        </p>
+        <p>
+          <i class="bx bx-time"></i>
+          {{carpool?.date | date:'HH:mm'}}
+        </p>
+        <p>
+          <i class="bx bx-chair"></i>
+          {{carpool?.numSeats}} places
+        </p>
+        <p>
+          <i class="bx bx-money-withdraw"></i>
+          {{carpool?.price}} €
+        </p>
+        <div class="d-flex flex-row justify-content-end align-items-center">
+          <button nz-button nzType="primary" (click)="selectedCarpool = carpool; isModalVisible = true">
+            Détails
+            <span style="position: relative; bottom: 2px !important;" nz-icon nzType="eye"></span>
+          </button>
+        </div>
+      </nz-card>
+    </nz-ribbon>
+  </div>
+</div>
+
+<nz-modal [nzWidth]="820" [(nzVisible)]="isModalVisible"
+          [nzTitle]="'Details'"
+          [nzFooter]="null"
+          (nzOnCancel)="isModalVisible = false"
+          (nzOnOk)="isModalVisible = false">
+  <ng-container *nzModalContent>
+    <app-offer-detail [carpool]="selectedCarpool"></app-offer-detail>
+  </ng-container>
+</nz-modal>
+
+
+<nz-modal [nzWidth]="820" [(nzVisible)]="isAddModalVisible" nzTitle="Ajouter un trajet"
+          [nzFooter]="null"
+          (nzOnCancel)="isAddModalVisible = false">
+  <ng-container *nzModalContent>
+    <app-offer-add (terminated)="onCarpoolAdded($event)"></app-offer-add>
+  </ng-container>
+</nz-modal>
+
+<nz-modal [nzWidth]="820" [(nzVisible)]="isUpdateModalVisible"
+          [nzTitle]="'Modification ' + selectedCarpool.toString()"
+          (nzOnCancel)="isUpdateModalVisible = false"
+          [nzFooter]="null">
+  <ng-container *nzModalContent>
+    <app-offer-update [journey]="selectedCarpool"
+                      (terminated)="isUpdateModalVisible = false; fetchCarpools()"></app-offer-update>
+  </ng-container>
+</nz-modal>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu>
+    <li nz-menu-item (click)="isUpdateModalVisible = true">
+      <i class="bx bx-pencil" style="position: relative; bottom: 5px;"></i>
+      &nbsp;
+      Modifier
+    </li>
+    <li nz-menu-item *ngIf="selectedCarpool?.passengers?.length === 0" (click)="delete()">
+      <i class="bx bx-trash" style="position: relative; bottom: 5px;"></i> &nbsp;
+      Supprimer
+    </li>
+  </ul>
+</nz-dropdown-menu>

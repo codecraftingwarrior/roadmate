@@ -1,0 +1,91 @@
+[
+  {
+    "email": "john.doe@example.com",
+    "password": "$2a$12$LJg7zRpA7n7fx2fdBOs7V.f7Cqp4P2QpBenYP0R96XUjU0EhxO.fG",
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": "555-1234",
+    "licenceNumber": null,
+    "licencePlateNumber": null,
+    "type": "customer"
+  },
+  {
+    "email": "jane.doe@example.com",
+    "password": "$2a$12$LJg7zRpA7n7fx2fdBOs7V.f7Cqp4P2QpBenYP0R96XUjU0EhxO.fG",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "phoneNumber": "555-5678",
+    "licenceNumber": null,
+    "licencePlateNumber": null,
+    "type": "customer"
+  },
+  {
+    "email": "bob.smith@example.com",
+    "password": "$2a$12$LJg7zRpA7n7fx2fdBOs7V.f7Cqp4P2QpBenYP0R96XUjU0EhxO.fG",
+    "firstName": "Bob",
+    "lastName": "Smith",
+    "phoneNumber": "555-9012",
+    "licenceNumber": "CD234567",
+    "licencePlateNumber": "CK-2345-67",
+    "type": "driver"
+  },
+  {
+    "email": "susan.jones@example.com",
+    "password": "$2a$12$LJg7zRpA7n7fx2fdBOs7V.f7Cqp4P2QpBenYP0R96XUjU0EhxO.fG",
+    "firstName": "Susan",
+    "lastName": "Jones",
+    "phoneNumber": "555-3456",
+    "licenceNumber": "AB-KDOR-FL",
+    "licencePlateNumber": "EF-GH56-78",
+    "type": "driver"
+  },
+  {
+    "email": "michael.brown@example.com",
+    "password": "$2a$12$LJg7zRpA7n7fx2fdBOs7V.f7Cqp4P2QpBenYP0R96XUjU0EhxO.fG",
+    "firstName": "Michael",
+    "lastName": "Brown",
+    "phoneNumber": "555-7890",
+    "licenceNumber": null,
+    "licencePlateNumber": null,
+    "type": "customer"
+  },
+  {
+    "email": "karen.green@example.com",
+    "password": "$2a$12$LJg7zRpA7n7fx2fdBOs7V.f7Cqp4P2QpBenYP0R96XUjU0EhxO.fG",
+    "firstName": "Karen",
+    "lastName": "Green",
+    "phoneNumber": "555-1234",
+    "licenceNumber": "HI-JK12-34",
+    "licencePlateNumber": "HI-JK12-34",
+    "type": "driver"
+  },
+  {
+    "email": "david.johnson@example.com",
+    "password": "$2a$12$LJg7zRpA7n7fx2fdBOs7V.f7Cqp4P2QpBenYP0R96XUjU0EhxO.fG",
+    "firstName": "David",
+    "lastName": "Johnson",
+    "phoneNumber": "555-5678",
+    "licenceNumber": null,
+    "licencePlateNumber": null,
+    "type": "customer"
+  },
+  {
+    "email": "amy.williams@example.com",
+    "password": "$2a$12$LJg7zRpA7n7fx2fdBOs7V.f7Cqp4P2QpBenYP0R96XUjU0EhxO.fG",
+    "firstName": "Amy",
+    "lastName": "Williams",
+    "phoneNumber": "555-9012",
+    "licenceNumber": "TI-JK12-54",
+    "licencePlateNumber": "LM-NO56-78",
+    "type": "driver"
+  },
+  {
+    "email": "admin@geek.com",
+    "password": "$2b$10$WH0WGENs.DQA5cqvVGb//OaK4beuTAeL9d8chIXsdIcrKmAYc/SWy",
+    "firstName": "Super",
+    "lastName": "Admin",
+    "phoneNumber": "3945-2234-4444",
+    "licenceNumber": "CD734567",
+    "licencePlateNumber": "CA-2345-67"
+  }
+]

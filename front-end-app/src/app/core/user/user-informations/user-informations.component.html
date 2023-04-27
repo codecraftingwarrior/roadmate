@@ -1,0 +1,58 @@
+<div class="d-flex flex-row justify-content-center align-content-center align-items-center ">
+  <div class="circle">
+    <p class="circle-inner">
+      {{user.firstName?.at(0) }}
+      {{user.lastName?.at(0)}}
+    </p>
+  </div>
+</div>
+
+<div class="d-flex flex-row justify-content-center align-items-center align-content-center">
+  <table>
+    <tr>
+      <td>
+        <i class="bx bx-envelope"></i>
+        Email :
+      </td>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+      <td>
+        <i class="bx bx-info-square"></i>
+        Prenom :
+      </td>
+      <td>{{user.firstName}}</td>
+    </tr>
+    <tr>
+      <td>
+        <i class="bx bx-info-square"></i>
+        Nom :
+      </td>
+      <td>
+        {{user.lastName}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <i class="bx bx-phone-call"></i>
+        Téléphone :
+      </td>
+      <td>{{user.phoneNumber}}</td>
+    </tr>
+    <tr *ngIf="user.type === 'driver'">
+      <td>
+        <i class="bx bx-credit-card"></i>
+        Numéro du permis :
+      </td>
+      <td>{{user.licenceNumber}}</td>
+    </tr>
+    <tr *ngIf="user.type === 'driver'">
+      <td>
+        <i class="bx bx-car"></i>
+        Numéro plaque d'immatriculation :
+      </td>
+      <td>{{user.licencePlateNumber}}</td>
+
+    </tr>
+  </table>
+</div>

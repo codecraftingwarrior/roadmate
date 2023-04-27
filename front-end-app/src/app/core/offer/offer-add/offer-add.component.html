@@ -1,0 +1,74 @@
+<form role="form" #form="ngForm">
+  <div class="row">
+    <div class="col-6">
+      <label for="departureCity">Adresse de depart</label>
+      <input nz-input class="form-control"
+             name="departureCity"
+             id="departureCity"
+             placeholder="Saisir une addresse"
+             ngx-google-places-autocomplete
+             required
+             [options]="options"
+             (onAddressChange)="handleAddressChange($event, 'departure')"
+      />
+    </div>
+
+    <div class="col-6">
+      <label for="arrivalCity">Adresse d'arrivée</label>
+      <input nz-input class="form-control"
+             name="arrivalCity"
+             id="arrivalCity"
+             placeholder="Saisir une addresse"
+             ngx-google-places-autocomplete
+             required
+             [options]="options"
+             (onAddressChange)="handleAddressChange($event, 'arrival')"
+      />
+    </div>
+
+    <div class="col-6 mt-3">
+      <label for="date">Date et heure de départ</label>
+      <nz-date-picker
+        id="date"
+        name="date"
+        nzShowTime
+        class="d-block"
+        nzFormat="yyyy-MM-dd HH:mm:ss"
+        required
+        ngModel
+        (nzOnOk)="onDatetimeChoosen($event)"
+      ></nz-date-picker>
+    </div>
+
+    <div class="col-6 mt-3">
+      <label for="numSeats">Nombre de place</label>
+      <nz-input-number id="numSeats" name="numSeats" class="d-block w-100"
+                       [(ngModel)]="journey.numSeats" [nzMin]="1"
+                       [nzStep]="1"></nz-input-number>
+    </div>
+
+    <div class="col-6 mt-3">
+      <label for="price">Prix</label>
+      <nz-input-number
+        id="price"
+        name="price"
+        [(ngModel)]="journey.price"
+        class="d-block w-100"
+        [nzMin]="1"
+        [nzStep]="1"
+        [nzFormatter]="formatterEuro"
+        [nzParser]="parserEuro"
+        required
+      ></nz-input-number>
+    </div>
+
+    <div class="col-12 mt-5">
+      <button nz-button nzType="primary" [nzLoading]="loading" [disabled]="form.invalid" (click)="storeCarpool()" style="width: 15%">
+        Valider
+      </button>
+    </div>
+  </div>
+
+
+</form>
+

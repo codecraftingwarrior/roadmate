@@ -1,0 +1,25 @@
+nz-form-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.search-card {
+  background-color: white;
+  border-radius: 14px;
+  padding: 9px 9px 20px;
+  width: auto;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+.auth-text {
+  position: relative;
+  left: 58%;
+  top: 8px;
+}
+
+#offerList {
+  min-height: 500px !important;
+}
+

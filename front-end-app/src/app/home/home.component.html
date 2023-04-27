@@ -1,0 +1,96 @@
+<app-menu></app-menu>
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
+        <div data-aos="zoom-out">
+          <h1>
+            Faites des économies tout en vous déplaçant. <br>
+            <span>RoadMate</span>
+          </h1>
+          <h2>Le covoiturage, une alternative pratique et conviviale.</h2>
+          <div class="text-center text-lg-start">
+            <a href="#about" class="btn-get-started scrollto">Commencez</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
+        <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+      </div>
+    </div>
+  </div>
+
+</section><!-- End Hero -->
+
+<main id="main">
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch"
+             data-aos="fade-right">
+        </div>
+
+        <div
+          class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5"
+          data-aos="fade-left">
+          <h3>Notre plateforme de covoiturage, la solution pour vos déplacements quotidiens.</h3>
+          <p>
+            Partager son trajet en voiture, c'est agir pour l'environnement tout en faisant des économies et en
+            rencontrant de nouvelles personnes.
+          </p>
+
+          <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon"><i class="bx bx-wallet-alt"></i></div>
+            <h4 class="title"><a href="javascript:void(0)">Économisez en covoiturant</a></h4>
+            <p class="description">
+              Partager un trajet en voiture permet de réduire les frais de transport pour tout le monde. Les passagers
+              économisent sur les frais de déplacement, tandis que les conducteurs peuvent partager les frais de
+              carburant et de péage avec leurs passagers.
+            </p>
+          </div>
+
+          <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon"><i class="bx bx-world"></i></div>
+            <h4 class="title"><a href="javascript:void(0)">Protégez la planète en covoiturant</a></h4>
+            <p class="description">
+              Le covoiturage est une alternative plus écologique à la voiture individuelle, car il permet de réduire le
+              nombre de voitures sur la route. En choisissant le covoiturage, vous pouvez contribuer à réduire votre
+              empreinte carbone et à protéger l'environnement.
+            </p>
+          </div>
+
+          <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon"><i class="bx bx-atom"></i></div>
+            <h4 class="title"><a href="">Faites des rencontres en covoiturant</a></h4>
+            <p class="description"> Le covoiturage est également une occasion de rencontrer de nouvelles personnes et de
+              partager des moments conviviaux pendant un trajet en voiture. Que vous soyez conducteur ou passager, vous
+              pouvez échanger avec des personnes de tous horizons et élargir votre cercle de connaissances.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Section -->
+
+  <!-- ======= Features Section ======= -->
+  <section id="features" class="features">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <h2>Trajets</h2>
+        <p style="cursor:pointer" [routerLink]="['/journey']">Trouvez un trajet</p>
+      </div>
+
+    </div>
+  </section>
+  <!-- End Features Section -->
+
+</main><!-- End #main -->
+
+<app-footer></app-footer>

@@ -1,0 +1,265 @@
+[
+  {
+    "departureCity": {
+      "name": "Paris",
+      "lat": 48.8566969,
+      "lng": 2.3514616
+    },
+    "arrivalCity": {
+      "name": "Marseille",
+      "lat": 43.2961743,
+      "lng": 5.3699525
+    },
+    "date": "2023-04-16T09:00:00Z",
+    "driverEmail": "bob.smith@example.com",
+    "numSeats": 2,
+    "passengers": [],
+    "price": 120
+  },
+  {
+    "departureCity": {
+      "name": "Bordeaux",
+      "lat": 44.837789,
+      "lng": -0.57918
+    },
+    "arrivalCity": {
+      "name": "Lyon",
+      "lat": 45.764043,
+      "lng": 4.835659
+    },
+    "date": "2023-05-01T14:00:00Z",
+    "driverEmail": "bob.smith@example.com",
+    "numSeats": 4,
+    "passengers": [],
+    "price": 90
+  },
+  {
+    "departureCity": {
+      "name": "Paris",
+      "lat": 48.8566,
+      "lng": 2.3522
+    },
+    "arrivalCity": {
+      "name": "Lyon",
+      "lat": 45.7640,
+      "lng": 4.8357
+    },
+    "date": "2023-05-15T11:30:00Z",
+    "driverEmail": "karen.green@example.com",
+    "numSeats": 3,
+    "passengers": [],
+    "price": 50
+  },
+  {
+    "departureCity": {
+      "name": "Nice",
+      "lat": 43.7102,
+      "lng": 7.2620
+    },
+    "arrivalCity": {
+      "name": "Marseille",
+      "lat": 43.2965,
+      "lng": 5.3698
+    },
+    "date": "2023-06-01T16:15:00Z",
+    "driverEmail": "karen.green@example.com",
+    "numSeats": 2,
+    "passengers": [],
+    "price": 30
+  },
+  {
+    "departureCity": {
+      "name": "Toulouse",
+      "lat": 43.6047,
+      "lng": 1.4442
+    },
+    "arrivalCity": {
+      "name": "Bordeaux",
+      "lat": 44.8378,
+      "lng": -0.5792
+    },
+    "date": "2023-07-10T10:00:00Z",
+    "driverEmail": "amy.williams@example.com",
+    "numSeats": 4,
+    "passengers": [],
+    "price": 25
+  },
+  {
+    "departureCity": {
+      "name": "Strasbourg",
+      "lat": 48.5734,
+      "lng": 7.7521
+    },
+    "arrivalCity": {
+      "name": "Lille",
+      "lat": 50.6293,
+      "lng": 3.0573
+    },
+    "date": "2023-08-20T10:30:00",
+    "driverEmail": "amy.williams@example.com",
+    "numSeats": 2,
+    "passengers": [],
+    "price": 35
+  },
+  {
+    "departureCity": {
+      "name": "Paris",
+      "lat": 48.8566,
+      "lng": 2.3522
+    },
+    "arrivalCity": {
+      "name": "Lyon",
+      "lat": 45.7640,
+      "lng": 4.8357
+    },
+    "date": "2023-05-15T14:00:00",
+    "driverEmail": "david.johnson@example.com",
+    "numSeats": 3,
+    "passengers": [],
+    "price": 50
+  },
+  {
+    "departureCity": {
+      "name": "Nice",
+      "lat": 43.7102,
+      "lng": 7.2620
+    },
+    "arrivalCity": {
+      "name": "Marseille",
+      "lat": 43.2965,
+      "lng": 5.3698
+    },
+    "date": "2023-06-01T12:15:00",
+    "driverEmail": "david.johnson@example.com",
+    "numSeats": 2,
+    "passengers": [],
+    "price": 30
+  },
+  {
+    "departureCity": {
+      "name": "Strasbourg",
+      "lat": 48.5734,
+      "lng": 7.7521
+    },
+    "arrivalCity": {
+      "name": "Lille",
+      "lat": 50.6293,
+      "lng": 3.0573
+    },
+    "date": "2023-08-20T18:00:00",
+    "driverEmail": "amy.williams@example.com",
+    "numSeats": 2,
+    "passengers": [],
+    "price": 35
+  },
+  {
+    "departureCity": {
+      "name": "Paris",
+      "lat": 48.8566,
+      "lng": 2.3522
+    },
+    "arrivalCity": {
+      "name": "Lyon",
+      "lat": 45.7640,
+      "lng": 4.8357
+    },
+    "date": "2023-05-15T09:45:00",
+    "driverEmail": "david.johnson@example.com",
+    "numSeats": 3,
+    "passengers": [],
+    "price": 50
+  },
+  {
+    "departureCity": {
+      "name": "Nice",
+      "lat": 43.7102,
+      "lng": 7.2620
+    },
+    "arrivalCity": {
+      "name": "Marseille",
+      "lat": 43.2965,
+      "lng": 5.3698
+    },
+    "date": "2023-06-01T12:30:00Z",
+    "driverEmail": "david.johnson@example.com",
+    "numSeats": 2,
+    "passengers": [],
+    "price": 30
+  },
+  {
+    "departureCity": {
+      "name": "Évreux",
+      "lat": 49.00007000000001,
+      "lng": 1.14094,
+      "address": "893 Rue Lavoisier, 27000 Évreux, France"
+    },
+    "arrivalCity": {
+      "name": "Paris",
+      "lat": 48.8597881,
+      "lng": 2.2784457,
+      "address": "74 Av. Paul Doumer, 75116 Paris, France"
+    },
+    "date": "2023-07-10T12:00",
+    "driverEmail": "amy.williams@example.com",
+    "numSeats": 4,
+    "passengers": [],
+    "price": 89.45
+  },
+  {
+    "departureCity": {
+      "name": "Aubervilliers",
+      "lat": 48.9036459,
+      "lng": 2.3684707,
+      "address": "45 Av. Victor Hugo, 93300 Aubervilliers, France"
+    },
+    "arrivalCity": {
+      "name": "Montpellier",
+      "lat": 43.6241485,
+      "lng": 3.8217661,
+      "address": "1006 Rue Marius Petipa, 34080 Montpellier, France"
+    },
+    "date": "2023-08-20T10:30",
+    "driverEmail": "amy.williams@example.com",
+    "numSeats": 4,
+    "passengers": [],
+    "price": 60
+  },
+  {
+    "departureCity": {
+      "name": "Moissy-Cramayel",
+      "lat": 48.63257309999999,
+      "lng": 2.5719713,
+      "address": "564 Rue de la Motte, 77550 Moissy-Cramayel, France"
+    },
+    "arrivalCity": {
+      "name": "Montpellier",
+      "lat": 43.6139808,
+      "lng": 3.898627,
+      "address": "900 Av. de la Pompignane, 34000 Montpellier, France"
+    },
+    "date": "2023-04-26T21:45",
+    "numSeats": 5,
+    "passengers": [],
+    "driverEmail": "amy.williams@example.com",
+    "price": 88.99
+  },
+  {
+    "departureCity": {
+      "name": "Saint-Georges-d'Orques",
+      "lat": 43.6187441,
+      "lng": 3.768906,
+      "address": "34680 Saint-Georges-d'Orques, France"
+    },
+    "arrivalCity": {
+      "name": "Villeneuve-lès-Maguelone",
+      "lat": 43.541122,
+      "lng": 3.8617723,
+      "address": "9087F Chem. de la Mosson, 34750 Villeneuve-lès-Maguelone, France"
+    },
+    "date": "2023-04-25T14:00",
+    "numSeats": 5,
+    "passengers": [],
+    "driverEmail": "amy.williams@example.com",
+    "price": 95.86
+  }
+]

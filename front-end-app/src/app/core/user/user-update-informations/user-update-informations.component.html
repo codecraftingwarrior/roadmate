@@ -1,0 +1,67 @@
+<div id="personal-info">
+  <nz-divider nzText="Informations personnelles" nzOrientation="left"></nz-divider>
+  <form role="form" class="mt-5" autocomplete="off" #form="ngForm">
+    <div class="row">
+      <div class="col-4">
+        <label for="firstName">Prenom</label>
+        <input id="firstName" #firstName="ngModel" name="firstName" required nz-input placeholder="Saisir prenom"
+               [(ngModel)]="userForUpdate.firstName"/>
+      </div>
+      <div class="col-4">
+        <label for="last-name">Nom</label>
+        <input id="last-name" #lastName="ngModel" required name="lastName" nz-input placeholder="Saisir nom"
+               [(ngModel)]="userForUpdate.lastName"/>
+      </div>
+      <div class="col-4">
+        <label for="phone-number">Téléphone</label>
+        <input id="phone-number" #phoneNumber="ngModel" required name="phoneNumber" nz-input
+               placeholder="Saisir numero de telephone"
+               [(ngModel)]="userForUpdate.phoneNumber"/>
+      </div>
+      <div class="col-6 mt-4" *ngIf="userForUpdate.type == 'driver'">
+        <label for="licence-number">Numero de permis</label>
+        <input id="licence-number" required #licenceNumber="ngModel" name="licenceNumber" nz-input
+               placeholder="Saisir le numero du permis"
+               [(ngModel)]="userForUpdate.licenceNumber"/>
+      </div>
+      <div class="col-6 mt-4" *ngIf="userForUpdate.type == 'driver'">
+        <label for="licence-plate-number">Numero plaque immatriculation vehicule</label>
+        <input id="licence-plate-number" required #licencePlateNumber="ngModel" nz-input name="licencePlateNumber"
+               placeholder="Saisir le numero de la plaque d'immatriculation"
+               [(ngModel)]="userForUpdate.licencePlateNumber"/>
+      </div>
+      <div class="col-12  mt-4 d-flex flex-row align-content-end justify-content-end ">
+        <button [disabled]="form.invalid" (click)="update()" [nzLoading]="loading" nz-button nzType="primary"
+                style="width: 20%;">Enregistrer
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <nz-divider nzText="Modifier mot de passe" nzOrientation="left"></nz-divider>
+  <form role="form" class="mt-5" autocomplete="off" #pwdForm="ngForm">
+    <div class="row">
+      <div class="col-4">
+        <label for="password">Mot de passe actuel</label>
+        <input id="password" type="password" [(ngModel)]="userForUpdate.currentPassword" name="password" required nz-input
+               placeholder="Saisir le mot de passe actuel"
+        />
+      </div>
+      <div class="col-4">
+        <label for="plainPassword">Nouveau mot de passe</label>
+        <input id="plainPassword" type="password" [(ngModel)]="userForUpdate.plainPassword" required name="plainPassword" nz-input
+               placeholder="Saisir le nouveau mot de passe"
+        />
+      </div>
+      <div class="col-4">
+        <label for="plainPasswordConfirm">Confirmer mot de passe</label>
+        <input id="plainPasswordConfirm" type="password" [(ngModel)]="userForUpdate.passwordConfirm" required name="plainPasswordConfirm" nz-input
+               placeholder="Confirmer le mot de passe"
+        />
+      </div>
+      <div class="col-12  mt-4 d-flex flex-row align-content-end justify-content-end ">
+        <button [disabled]="pwdForm.invalid" (click)="updatePassword()" nz-button nzType="primary" style="width: 20%;">Enregistrer</button>
+      </div>
+    </div>
+  </form>
+</div>

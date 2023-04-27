@@ -1,0 +1,32 @@
+<div>
+  <h6>Liste des Passagers ({{carpool.passengers.length}})</h6>
+  <br>
+  <nz-table [hidden]="dataset.length == 0" [nzFrontPagination]="false" [nzShowPagination]="false" style="width: 100%;"
+            #basicTable [nzData]="dataset">
+    <thead>
+    <tr>
+      <th>Email</th>
+      <th>Prenom</th>
+      <th>Nom</th>
+      <th>Téléphone</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{data.email}}</td>
+      <td>{{data.firstName}}</td>
+      <td>{{data.lastName}}</td>
+      <td>
+        {{data.phoneNumber}}
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+
+  <nz-alert [hidden]="dataset.length>0" nzType="info" nzMessage="Informations"
+            nzDescription="Vous n'avez encore aucune reservation pour le moment." nzShowIcon></nz-alert>
+
+  <h6 class="mt-4" >Trajectoire</h6>
+  <br>
+  <app-offer-map [carpool]="carpool" ></app-offer-map>
+</div>
